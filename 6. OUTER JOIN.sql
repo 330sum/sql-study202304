@@ -1,4 +1,3 @@
--- OUTER JOIN 실습환경 세팅
 INSERT INTO tb_dept VALUES ('100014', '4차산업혁명팀', '999999');
 INSERT INTO tb_dept VALUES ('100015', '포스트코로나팀', '999999');
 COMMIT;
