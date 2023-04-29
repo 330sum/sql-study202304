@@ -39,7 +39,7 @@ SELECT * FROM test_b;
 
 -- JOIN 가로연결 (A컬럼 + B컬럼)
 -- 중첩반복문의 형태 (A튜플 * B튜플)
--- FROM에서 , , 콤마로 연결하는 것 오라클 전용 조인임
+-- FROM에서 , , 콤마로 연결하는 것 오라클 전용 조인문법임
 -- CROSS JOIN, 카테시안 곱(cartesian product)
 SELECT 
     *
@@ -47,7 +47,7 @@ FROM test_a, test_b
 -- WHERE TEST_A.ID = TEST_B.A_ID
 ;
 
--- WHERE조건이 없으면 카테시안 곱이 되서 이상한데이터가 나옴
+-- WHERE조건이 없으면 cross join이 되어서(카테시안 곱으로)원하는 데이터가 나오지 않음
 SELECT 
 	TB_EMP.EMP_NO , 
 	TB_EMP.EMP_NM , 
@@ -221,7 +221,7 @@ CROSS JOIN test_B b
 
 
 -- # NATURAL JOIN
--- 두테이블의 PK FK가 완전 동일한 경우
+-- 두테이블의 PK FK가 완전 동일한 경우, ON절을 쓰지않아도 알아서 조인해줌!
 -- 주의! 두테이블을 조인하면 컬럼+컬럼인데 PK=FK인 컬럼 하나로 합쳐져서 나와서 하나를 뺌! (시험자주등장)
 -- 또, PK=FK인 컬럼 앞에는 특정하게 정의 불가능 246번라인 (시험자주등장 - 여기서 오류나는걸 찾아라 이런식)
 -- 근데, 함부로 쓰면 안되는 이유? PK=FK가 1개인 경우에는 inner join과 같은 결과를 주지만,
